@@ -179,9 +179,11 @@ import SearcherActionButton from "./components/generics/SearcherActionButton";
 import InfoButton from "./components/generics/InfoButton";
 import LoginPage from "./pages/LoginPage";
 import LogoutPage from "./pages/LogoutPage";
+import MediTrustDashboard from "./pages/MediTrustDashboard";
 
 const ROUTE_ROLES = "roles";
 const ROUTE_ROLE = "roles/role";
+const ROUTE_MEDITRUST = "meditrust";
 
 // Admin routes
 const ROUTE_ADMIN_USERS = "admin/users";
@@ -278,6 +280,14 @@ const DEFAULT_CONFIG = {
     { path: ROUTE_ADMIN_USER_NEW, component: UserPage, rights: [RIGHT_USERS], icon: "Person" },
     { path: `${ROUTE_ADMIN_USER_OVERVIEW}/:user_id`, component: UserPage, rights: [RIGHT_USERS], icon: "Person" },
     { path: "logout", component: LogoutPage, exact: true },
+    {
+      path: ROUTE_MEDITRUST,
+      text: "meditrust.menu.label",
+      id: "admin.meditrust",
+      component: MediTrustDashboard,
+      rights: [],
+      icon: "Shield",
+    },
   ],
   "core.MainMenu": [{ name: "AdminMainMenu", id: "admin.MainMenu", text: "admin.mainMenu", icon: "LocationCity" }],
   "fe-core.menus": [],
@@ -296,6 +306,9 @@ const DEFAULT_CONFIG = {
     {
       route: ROUTE_ADMIN_USERS,
       withDivider: true,
+    },
+    {
+      route: ROUTE_MEDITRUST,
     },
   ],
 };

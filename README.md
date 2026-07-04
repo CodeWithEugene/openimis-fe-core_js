@@ -12,6 +12,40 @@ It is dedicated to be deployed as a module of [openimis-fe_js](https://github.co
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/openimis/openimis-fe-core_js.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/openimis/openimis-fe-core_js/alerts/)
 
+---
+
+## 🛡️ MediTrust hackathon fork
+
+> Built for the **KeHIA × @iLabAfrica Digital Health Financing Hackathon 2026** (Strathmore University).
+> This fork registers the **MediTrust Portal** — the frontend for the
+> [MediTrust zero-trust health financing gateway](https://github.com/CodeWithEugene/openimis-be-core_py)
+> (mobile premiums, participatory USSD claim verification, AI pre-adjudication with FHIR R4 output,
+> tamper-evident audit ledger) — as a first-class openIMIS frontend module.
+
+### What this fork adds
+
+- **`src/pages/MediTrustDashboard.jsx`** — the MediTrust portal page, built with the same MUI
+  component set as the rest of openIMIS and styled with the official openIMIS brand color tokens
+  (brand teal `rgb(0,99,116)`, amber `rgb(244,174,43)`, red `rgb(200,15,15)`).
+- **Route registration** (`src/index.jsx`) — the page is mounted at the `meditrust` route through the
+  standard `core.Router` contribution mechanism (no monkey-patching), with a `Shield` icon.
+- **Main-menu entry** — "MediTrust Portal" appears in the Admin main menu via the standard
+  `admin.MainMenu` contribution, translated through `src/translations/en.json`.
+
+Build passes with `npm run build`. Everything else in the module is untouched upstream code.
+
+### Known limitations
+
+- The module builds standalone, but the Docker demo stack runs the **stock pre-built openIMIS frontend image**, so this page is not visible there — building a full `openimis-fe_js` assembly with this fork enables it. The demo uses the backend-served MediTrust portal instead.
+- `MediTrustDashboard.jsx` has no frontend test suite yet (backend behaviour is covered by the 43-test suite in the backend fork).
+
+### Related hackathon repositories
+
+- **[openimis-be-core_py fork](https://github.com/CodeWithEugene/openimis-be-core_py)** — the MediTrust engine (full feature docs, GraphQL/FHIR API, test suite)
+- **[openimis-dist_dkr fork](https://github.com/CodeWithEugene/openimis-dist_dkr)** — Docker stack that boots the complete MediTrust demo
+
+---
+
 ## Core Components
 
 - `App`: application pages container (all openIMIS pages are loaded within that container)

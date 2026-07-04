@@ -1,6 +1,7 @@
 {
   "core.pickerNoOptionsLabel": "No options available",
   "core.roleManagement.label": "Roles Management",
+  "meditrust.menu.label": "MediTrust Portal",
   "core.roleManagement.searcher.results.title": "{rolesTotalCount} Roles Found",
   "core.roleManagement.roleName": "Role Name",
   "core.roleManagement.altLanguage": "Alternative Language",
